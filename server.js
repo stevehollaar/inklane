@@ -1,9 +1,11 @@
 import express from 'express';
+import moment from 'moment';
 
 const app = express();
 app.get('/', (req, res) => {
   console.log('got request');
-  res.send(`Hello world`);
+  const date = moment().format();
+  res.send(`Hello world ${date}`);
 });
 
 const server = app.listen(8081, () => {
