@@ -1,3 +1,3 @@
 require('babel-core/register');
-require('pmx').init();
+require('pmx').init({http: true});
 require('./server');
