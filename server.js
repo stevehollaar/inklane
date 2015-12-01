@@ -1,8 +1,17 @@
 import express from 'express';
 import moment from 'moment';
+import redis from 'redis';
+import r from 'rethinkdb';
 
 const app = express();
+const redisClient = redis.createClient();
 const {PORT} = process.env;
+r.connect({host: 'localhost', port: 28015}, (err, conn) => {
+  if (err) throw err;
+  console.log('Connected to rethinkdb');
+});
+
+redisClient.on('error', console.error);
 
 app.get('/', (req, res) => {
   console.log('got request');
