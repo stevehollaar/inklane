@@ -1,4 +1,12 @@
 {
+  "apps": [
+    {
+      "name": "inklane",
+      "post_update": [
+        "npm install"
+      ]
+    }
+  ],
   "name": "inklane",
   "version": "1.0.0",
   "description": "",
