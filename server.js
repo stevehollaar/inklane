@@ -1,11 +1,15 @@
 import express from 'express';
 import moment from 'moment';
+import morgan from 'morgan';
 // import redis from 'redis';
 // import r from 'rethinkdb';
 
 const app = express();
 // const redisClient = redis.createClient();
-const {PORT} = process.env;
+const { PORT = 9000 } = process.env;
+
+app.use(morgan('combined')); // HTTP logging middleware.
+
 // r.connect({host: 'localhost', port: 28015}, (err, conn) => {
 //   if (err) throw err;
 //   console.log('Connected to rethinkdb');
@@ -15,7 +19,6 @@ const {PORT} = process.env;
 //
 
 app.get('*', (req, res) => {
-  console.log('got request');
   res.redirect('https://www.etsy.com/shop/InkLaneDesign');
 });
 
